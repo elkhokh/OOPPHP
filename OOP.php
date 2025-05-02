@@ -21,13 +21,25 @@
     11- abstract methods to force the user to use this function in class they inherit
 */
 
-class ClsPerson{
+
+// interface concept
+interface IntId{
+    public function id();
+}
+
+class ClsPerson implements IntId{
     private $_first_name;
     private $_last_name;
     private $_age;
     private $_email;
     private $_password;
     const LENGTH =1; 
+    private $_id = 10;
+
+    // interface 
+    public function id(){
+        return $this -> _id ;
+    }
     // constructor *****************
     function __construct($f_name , $l_name, $c_age, $c_email, $c_password ){
         $this ->_first_name = $f_name;
@@ -215,6 +227,8 @@ $extra_data = new ClsExtraData( "mustafa", "elkhokhy", 21, "mustafaelkhokhy@gmai
 $extra_data -> set_job("backend developer");
 $extra_data -> set_salary(100000);
 
+echo "id = " .$extra_data -> id();
+echo "<hr>" ;
 $extra_data -> print_user_data();
 
 
