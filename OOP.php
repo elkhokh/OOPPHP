@@ -15,11 +15,14 @@
     5- function overriding       ::::::::::::
     6- parameterized constructor ::::::::::::
     7- interfaces :
-    8- traits
+    8- traits it help in single inheritance
     9- polymophism 
     10- final class can't allow any class to inheritance from him ::::::::::: final class ClsPerson {  }
     11- abstract methods to force the user to use this function in class they inherit
+    12- return $this; to return all of data in the same line
+
 */
+
 
 
 // interface concept
@@ -207,7 +210,6 @@ $person1 = new ClsPerson("mustafa", "elkhokhy", 21, "mustafaelkhokhy@gmail.com",
 
 echo $person1::LENGTH;
 echo "<hr>";
-
 $person1 -> set_first_name("mostafa");
 $person1 -> set_last_name("khaled");
 $person1 -> set_email("mostafa@gmail.com");
@@ -231,4 +233,35 @@ echo "id = " .$extra_data -> id();
 echo "<hr>" ;
 $extra_data -> print_user_data();
 
+/************************** iterface and polymophism ************** */
+echo "<hr>" ;
+echo "<hr>" ;
+interface Notifier {
+    public function send($message);
+}
+class EmailNotifier implements Notifier {
+    public function send($message) {
+        return "Sending email with message: $message";
+    }
+}
+class SMSNotifier implements Notifier {
+    public function send($message) {
+        return "Sending SMS with message: $message";
+    }
+}
+class PushNotifier implements Notifier {
+    public function send($message) {
+        return "Sending push notification with message: $message";
+    }
+}
+function notify(Notifier $notifier, $message) {
+    echo $notifier->send($message) . "<br>";
+}
 
+$email = new EmailNotifier();
+$sms = new SMSNotifier();
+$push = new PushNotifier();
+
+notify($email, "Hello via Email!");
+notify($sms, "Hello via SMS!");    
+notify($push, "Hello via Push!"); 
