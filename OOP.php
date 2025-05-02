@@ -218,7 +218,3 @@ $extra_data -> set_salary(100000);
 $extra_data -> print_user_data();
 
 
-
-// git remote add origin https://github.com/elkhokh/OOPPHP.git
-// git branch -M master
-// git push -u origin master
