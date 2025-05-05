@@ -1,12 +1,53 @@
 <?php
 
-// info: first test class -------------------
-// hack: first test class -------------------
-// idea: first test class -------------------
-// fixme: first test class ------------------
+
+/*      ::::::::::::  search :::::::::::::
+
+        i make the ex to explain the status 
+
+        :::::::::  1-  magic methods   ::::::::::::::::
+    1- constructors >>>>  public function  __construct( , , ){ }
+        can take param or not 
+        is the same name of class in another lang but 
+        make inizilion to carry variables in  the class when program 
+        start it be starting ,can make overriding .  show the example 
+    -------------------------------------------------------------------
+    3- destructores >>> public  function __destruct(){}
+    not take param it calling after finsh the program 
+    ----------------------------------------------------
+    3- call >>>>>     public function __call ($method , $params){ put var of method and var of params }
+        developer methods if i use private method or calling method is not exist show the massage 
+    ---------------------------------------------------------------------------------------------------------
+    4- get and set method is the standard type use when make properties private 
+    ----------------------------------------------------------------------------
+    5- clone  public function __clone(){ }
+    with properties and with method  
+    $main = new ClsPerson()  ;      
+    $copy = clone $main 
+    when access  copy by different value it appear with this value and main object appear with old value 
+    the method use when make the copy object and u need to save the data on old object u but clone 
+    ------------------------------------------------------------------------------------------------------
+_______________________________________________________________________________________________________________________________________________
+                            :::::::: absract and interface ::::::::::::::::
+
+    1- abstract methods   abstract public function conn() ;    |  2- interface 
+    force the user to use this function in class they inherit  |    force the user to use this function in class they inherit ex in line 280
+    ex:                                                        |   is function can used with same name from interface class and use to give 
+    abstract class Car {                                       |   pure virtual function 
+    public $name;                                              |
+    public function __construct($name) {                       |
+    $this->name = $name;   }                                   |
+    abstract public function intro() : string; }               |
+class Audi extends Car {                                       |
+        public function intro() : string {                     |
+    return "Choose German quality! I'm an $this->name!";       |
+    }                                                          |
+}                                                              |
+____________________________________________________________________________________________________________________________________________
+
+*/
 
 /*  OOP in php
-
     0- access modifiers public private protected 
     1- constructors
     2- destructores 
@@ -20,7 +61,6 @@
     10- final class can't allow any class to inheritance from him ::::::::::: final class ClsPerson {  }
     11- abstract methods to force the user to use this function in class they inherit
     12- return $this; to return all of data in the same line
-
 */
 
 
@@ -55,7 +95,8 @@ class ClsPerson implements IntId{
     public static function print(){
         echo "welcome to be in oop ";
     }
-
+    // abstract
+   
     
     public function set_first_name($first_name){
 
@@ -159,7 +200,7 @@ class ClsExtraData extends ClsPerson{
     }  
     
     // abstract meth
-
+   
 
     public function set_job($job){
         if(strlen($job < self::LENGTH)){
@@ -232,6 +273,8 @@ $extra_data -> set_salary(100000);
 echo "id = " .$extra_data -> id();
 echo "<hr>" ;
 $extra_data -> print_user_data();
+
+
 
 /************************** iterface and polymophism ************** */
 echo "<hr>" ;
