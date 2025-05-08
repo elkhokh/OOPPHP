@@ -1,3 +1,3 @@
 <?php
 // 
-echo "just test file ";
+echo "test file to make small project with oop in php ";
