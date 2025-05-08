@@ -112,3 +112,9 @@ echo "<hr>";
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 $car = new ClsBabyCar("10", 500 , "bmw", "anything");
 $car ->set_price(1000);
+$car ->set_tax(23);
+$car ->set_meterial(["metal", "nanao", "test"]);
+echo "<pre>";
+$car ->display_material();
+echo "</pre>";
+echo $car ->get_final_price();
